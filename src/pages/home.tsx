@@ -2,23 +2,37 @@ import { useAuth0 } from "@auth0/auth0-react";
 import React from "react";
 import LoginButton from "./Loginbutton";
 import ReactDOM from "react-dom/client";
-// import { BrowserRouter, Routes, Route }   //from "react-router-dom";
-// import Upl from "./pages/Upl";
+import { createBrowserRouter,BrowserRouter, RouterProvider, Route } from "react-router-dom";
+import Upl from "./Upl"
 
-function App() {
+// const router = createBrowserRouter([
+//   {
+//     path: "/Upl",
+//     element: <Upl/>,
+//   },
+// ]); 
+
+
+function Home() {
   return (
     <>
-     {/* <BrowserRouter>
+
+ 
+
+    {/* <BrowserRouter>
     <Route path="Upl" element={<Upl />} />
-    </BrowserRouter>  */}
-      <div
+    </BrowserRouter>  
+     */}
+       <div
         style={{
           backgroundImage: 'url("/bg.jpg")',
-          width: "100%",
+        
           //height: "100vh",
           // marginTop: "-70px",
           marginTop: "auto",
           marginBottom: "auto",
+          height:"auto",
+          width:"auto",
 
           fontSize: "50px",
           backgroundSize: "100% 100%",
@@ -26,17 +40,18 @@ function App() {
         }}
       >
         <div
-          style={{
-            paddingTop: "100px",
-            paddingBottom: "101px",
-          }}
+          // style={{
+          //   paddingTop: "100px",
+          //   paddingBottom: "101px",
+          // }}
         >
-          <div style={{ paddingLeft: "100px" }}>
+          <LoginButton />
+          {/* <div style={{ paddingLeft: "100px" }}>
             <h1 style={{ fontSize: "100px" }}>DataHub</h1>
             <h2 style={{ fontSize: "50px" }}>
               Empowering AI, One Annotation at a Time.
             </h2>
-          </div>
+          </div> */}
           <div
             style={{
               backgroundColor: "whitesmoke",
@@ -63,10 +78,10 @@ function App() {
           </div>
         </div>
 
-        <LoginButton />
-      </div>
+        {/* <LoginButton /> */}
+      </div> 
     </>
   );
 }
 
-export default App;
+export default Home;
