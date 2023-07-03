@@ -5,10 +5,12 @@ const LoginButton = () => {
   const { loginWithRedirect } = useAuth0();
 
   return (
-    <button style={{borderRadius:"17px",width:"130px",height:"50px",fontFamily:"monospace",fontSize:"30px",marginRight:"5px",paddingBottom:"10px"}}
+    <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+    <button style={{borderRadius:"20px",width:"130px",height:"70px",fontFamily:"monospace",marginBottom:"10px",fontSize:"25px",border:"0",marginTop:"30px",cursor:"pointer",marginRight:"10px",color:"#6c63ff",backgroundColor:"white"}}
     onClick={() => loginWithRedirect()}>
-      Log In
+      LogIn
     </button>
+    </div>
   );
 };
 

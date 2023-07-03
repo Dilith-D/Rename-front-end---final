@@ -6,16 +6,17 @@ import bg_image from "../assets/img1.jpg";
 // function Layout() {
   const Layout = () => {
     return (<React.Fragment>
-      <main style={{width:'100%', backgroundImage: `url(${bg_image})`,backgroundSize:"cover    "}}>
-        <header style={{backgroundColor:"#F8F8FF",paddingLeft:"100px",marginTop:"-75px"}} >
+      <main >
+        <header style={{backgroundColor:"#6c63ff",paddingLeft:"100px",marginTop:"-75px"}} >
         <div >
           <span>
-             <h1 style={{fontStyle:"normal",fontFamily:"monospace",fontSize:"100px"}}>Rename <Link style={{fontSize:"50px",textAlign:"right"}} to={"/upload"}>upload</Link></h1>
-             <div style={{width:'100%', alignItems:'space-between'}}>
-              <h2 style={{ fontSize: "35px",fontFamily:"monospace",paddingBottom:"10px",marginTop:"-70px"}}>
+             <h1 style={{fontStyle:"normal",fontFamily:"monospace",textAlign:"center",color:"white",fontSize:"100px"}}>Rename <Link style={{fontSize:"50px",textAlign:"right"}} to={"/upload"}>upload</Link>   <LoginButton  /> </h1>
+             {/* <div style={{width:'100%', alignItems:'space-between'}}> */}
+             {/* <LoginButton  />  */}
+              <h2 style={{ fontSize: "35px",fontFamily:"monospace",textAlign:"center",color:"white",paddingBottom:"10px",marginTop:"-110px"}}>
                   Empowering AI,One Annotation at a Time.</h2>
-                <LoginButton  />
-             </div>
+                
+             {/* </div> */}
             </span>
           </div>
         <div >

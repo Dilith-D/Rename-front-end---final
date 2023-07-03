@@ -41,8 +41,7 @@ const Upl = () => {
               src={URL.createObjectURL(selectedImage[0])}
             />
             <br />
-            <button style={{borderRadius:"17px",width:"130px",height:"50px",
-            fontFamily:"monospace",fontSize:"30px",marginRight:"5px",paddingBottom:"10px",}}  onClick={() => setSelectedImage(null)}>Remove</button>
+            <button style={{borderRadius:"20px",width:"130px",height:"50px",fontFamily:"monospace",fontSize:"30px",border:"0",marginTop:"30px",cursor:"pointer",color:"#fff",backgroundColor:"#6c63ff"}}  onClick={() => setSelectedImage(null)}>Remove</button>
           </div>
         )}
 
@@ -61,8 +60,7 @@ const Upl = () => {
         <br />
         <br />
 
-        <button style={{borderRadius:"17px",width:"130px",height:"50px",
-        fontFamily:"monospace",fontSize:"30px",marginRight:"5px",paddingBottom:"10px",}}onClick={handleImageUpload}>Upload</button>
+        <button style={{borderRadius:"20px",width:"130px",height:"50px",fontFamily:"monospace",fontSize:"30px",border:"0",marginTop:"30px",cursor:"pointer",color:"#fff",backgroundColor:"#6c63ff"}}onClick={handleImageUpload}>Upload</button>
 
         <div>
           {tags.length > 0 && (
