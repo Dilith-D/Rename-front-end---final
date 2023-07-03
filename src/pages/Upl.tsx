@@ -1,6 +1,43 @@
 import React, { useState } from "react";
+import { useAuth0 } from '@auth0/auth0-react';
 
-const Upl = () => {
+const Mycomponent = () =>{
+const {
+  // Auth state:
+  error,
+  isAuthenticated,
+  isLoading,
+  user,
+  // Auth methods:
+  getAccessTokenSilently,
+  getAccessTokenWithPopup,
+  getIdTokenClaims,
+  loginWithRedirect,
+  loginWithPopup,
+  logout,
+} = useAuth0();
+
+const renderContent =():JSX.Element => {
+if(isLoading){
+  return <div> Loading ....... Please Wait</div>;
+}
+
+if (error){
+  return <div> Error Occured Please try again and lets Label some DATA : {error.message}</div>;
+}
+if (!isAuthenticated){
+  return <div> USER IS NOT AUTHORIZED TO VIEW THIS , PLEASE LOGIN</div>;
+}
+
+
+return <Upl />;
+};
+
+
+
+  const Upl = () => {
+
+    
   const [selectedImage, setSelectedImage] = useState<FileList | null>(null);
   const [tags, setTags] = useState<string[]>([]);
   const [outputImage, setOutputImage] = useState<string>("");
@@ -31,7 +68,7 @@ const Upl = () => {
   return (
     <>
       <div>
-        <h1 style={{fontSize:"55px",fontFamily:"monospace",paddingLeft:"100px"}}>Upload Image</h1>
+        <h1 style={{fontSize:"55px",fontFamily:"monospace",}}>Upload Image</h1>
 
         {selectedImage && (
           <div>
@@ -76,15 +113,40 @@ const Upl = () => {
 
           {outputImage && (
             <>
-              <h2 style={{fontSize:"55px",fontFamily:"monospace",paddingLeft:"100px"}}>Output Image:</h2>
+              <h2 style={{fontSize:"55px",fontFamily:"monospace",}}>Output Image:</h2>
               <img alt="output" src={`data:image/png;base64, ${outputImage}`} />
             </>
           )}
         </div>
       </div>
     </>
+  );     
+  };
+
+  return ( 
+  <div>
+
+    
+
+
+    
+    {isAuthenticated && user &&(
+      <div
+          style={{
+            background: "#f8f8f8",
+            padding: "20px",
+            fontSize: "24px",
+            fontFamily: "Arial, sans-serif",
+            fontWeight: "bold",
+            color: "#333",
+            alignContent:"center",
+          }}
+        >
+        Hello {user.name}, Welcome ! Let's Label some data
+      </div>
+    )}
+    {renderContent() }
+  </div>
   );
 };
-
-export default Upl;
-
+  export default Mycomponent;

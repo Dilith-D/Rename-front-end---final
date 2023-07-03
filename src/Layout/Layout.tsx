@@ -10,7 +10,8 @@ import bg_image from "../assets/img1.jpg";
         <header style={{backgroundColor:"#6c63ff",paddingLeft:"100px",marginTop:"-75px"}} >
         <div >
           <span>
-             <h1 style={{fontStyle:"normal",fontFamily:"monospace",textAlign:"center",color:"white",fontSize:"100px"}}>Rename <Link style={{fontSize:"50px",textAlign:"right"}} to={"/upload"}>upload</Link>   <LoginButton  /> </h1>
+             <h1 style={{fontStyle:"normal",fontFamily:"monospace",textAlign:"center",color:"white",fontSize:"100px"}}>Rename     <LoginButton  /> </h1>
+             {/* <Link style={{fontSize:"50px",textAlign:"right"}} to={"/upload"}>upload</Link> */}
              {/* <div style={{width:'100%', alignItems:'space-between'}}> */}
              {/* <LoginButton  />  */}
               <h2 style={{ fontSize: "35px",fontFamily:"monospace",textAlign:"center",color:"white",paddingBottom:"10px",marginTop:"-110px"}}>
