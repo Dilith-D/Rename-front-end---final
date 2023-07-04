@@ -78,10 +78,10 @@ export default function App() {
 
 ReactDOM.render(
   <Auth0Provider
-    domain="dev-006fyqkon6m7rf4w.us.auth0.com"
-    clientId="ZNg7BnproP8f3ubMkpbOp7RZAUpGJlqM"
+    domain="dev-2jn0binpdgp7d2ic.us.auth0.com"
+    clientId="7RmP2x3MF0EpZifve4vG96gkkMmsUX1u"
     authorizationParams={{
-      redirect_uri: "http://localhost:5174/upload",
+      redirect_uri: "http://localhost:5173/upload",
     }}
   >
     <App />

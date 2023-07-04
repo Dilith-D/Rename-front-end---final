@@ -1,24 +1,27 @@
 import React  from "react";
 import { Link } from 'react-router-dom';
 import { Outlet } from "react-router-dom";
-import LoginButton from "../pages/Loginbutton";
+import LogoutButton from "../pages/LogoutButton";
 import bg_image from "../assets/img1.jpg";
+import { useAuth0 } from '@auth0/auth0-react';
 // function Layout() {
   const Layout = () => {
     return (<React.Fragment>
       <main >
-        <header style={{backgroundColor:"#6c63ff",paddingLeft:"100px",marginTop:"-75px"}} >
+        <header style={{backgroundColor:"#1285e8",paddingLeft:"100px",paddingTop:"30px",marginTop:"-75px"}} >
         <div >
-          <span>
-             <h1 style={{fontStyle:"normal",fontFamily:"monospace",textAlign:"center",color:"white",fontSize:"100px"}}>Rename     <LoginButton  /> </h1>
+          
+             <h1 style={{fontStyle:"normal",fontFamily:"monospace",textAlign:"center",color:"white",fontSize:"60px",marginTop:"70px"}}>Rename     </h1>
              {/* <Link style={{fontSize:"50px",textAlign:"right"}} to={"/upload"}>upload</Link> */}
              {/* <div style={{width:'100%', alignItems:'space-between'}}> */}
-             {/* <LoginButton  />  */}
-              <h2 style={{ fontSize: "35px",fontFamily:"monospace",textAlign:"center",color:"white",paddingBottom:"10px",marginTop:"-110px"}}>
+            
+              <h2 style={{ fontSize: "35px",fontFamily:"monospace",textAlign:"center",color:"white",paddingBottom:"10px",marginTop:"-40px"}}>
                   Empowering AI,One Annotation at a Time.</h2>
-                
+
+                  {/* if(isAuthenticated){
+                    <LogoutButton />} */}
              {/* </div> */}
-            </span>
+            
           </div>
         <div >
        </div>

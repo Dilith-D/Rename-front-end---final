@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter,BrowserRouter, RouterProvider, Route } from "react-router-dom";
 import Upl from "./Upl"
 import gallery from '../assets/gallery.png'
+import LoginButton from "./Loginbutton";
 
 
 
@@ -11,10 +12,7 @@ function Home() {
   return (
     <>
         <div
-          // style={{
-          //   paddingTop: "100px",
-          //   paddingBottom: "101px",
-          // }}
+          style={{display:"flex"}}
         >
         
         
@@ -24,7 +22,7 @@ function Home() {
               borderRadius: "17px",
               padding: "30px",
               opacity: "1",
-              width: "1200px",
+              width: "420px",
               marginTop: "100px",
               marginLeft: "70px",
               marginBottom:"100px",
@@ -33,8 +31,8 @@ function Home() {
             }}
           >
            
-            <h2 style={{color:"black",fontSize:"50px",fontFamily:"sans-serif"}}>Your Gateway to Precise Data Labelling!</h2>
-            <p style={{color:"black",fontSize:"40px",fontFamily:"sans-serif"}}>
+            <h2 style={{color:"black",fontSize:"35px",fontFamily:"sans-serif"}}>Your Gateway to Precise Data Labelling!</h2>
+            <p style={{color:"black",fontSize:"20px",fontFamily:"sans-serif"}}>
               Unlock the true potential of your data with DataHub, the premier
               platform for accurate and efficient data labelling. We understand
               the power of clean,labeled data and its impact on shaping the
@@ -43,14 +41,41 @@ function Home() {
               the highest-quality labelled datasets, fueling groundbreaking
               advancements across industries.
             </p>
-            
-          </div>
-           <div  style={{display: 'flex', justifyContent: "right",height:"400px",paddingRight:"250px",paddingBottom:"100px",alignContent:"end",marginTop:"-550px"}}>
-              <img src={gallery}  alt=""/>
             </div>
+
+            <div
+            style={{
+              backgroundColor: "#F8F8FF",
+              borderRadius: "17px",
+              padding: "30px",
+              opacity: "1",
+              width: "420px",
+              marginTop: "100px",
+              marginLeft: "70px",
+              marginRight:"0px",
+              
+              marginBottom:"100px",
+              color:"black",
+              textAlign:"center"
+              
+            }}
+          >
+          <h1 style={{fontFamily:"sans-serif"}}>Welcome to Rename</h1>
+          <h2 style={{fontFamily:"sans-serif"}}>To get started,please sign in!</h2>
+          <div style={{paddingRight:"130px"}}>
+          <LoginButton/>
+          </div>
+          </div>
+            
+
+
+          
+           {/* <div  style={{display: 'flex', justifyContent: "right",height:"400px",paddingRight:"250px",paddingBottom:"100px",alignContent:"end",marginTop:"-550px"}}>
+              <img src={gallery}  alt=""/>
+            </div> */}
         </div>
 
-       
+    
     
     </>
   );

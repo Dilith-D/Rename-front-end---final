@@ -26,6 +26,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./Layout/Layout";
 import Home from "./pages/home";
 import Upl from "./pages/Upl";
+// import Layout2 from "./Layout/Layout2";
 import { Auth0Provider } from '@auth0/auth0-react';
 
 export default function App() {
@@ -36,6 +37,11 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="/upload" element={<Upl />} />
         </Route>
+{/* 
+        <Route path="/" element={<Layout2 />}>
+          <Route index element={<Upl />} />
+          <Route path="/upload" element={<Upl />} />
+        </Route> */}
       </Routes>
     </BrowserRouter>
   );
@@ -43,8 +49,8 @@ export default function App() {
 
 ReactDOM.render(
   <Auth0Provider
-    domain="dev-006fyqkon6m7rf4w.us.auth0.com"
-    clientId="ZNg7BnproP8f3ubMkpbOp7RZAUpGJlqM"
+    domain="dev-2jn0binpdgp7d2ic.us.auth0.com"
+    clientId="7RmP2x3MF0EpZifve4vG96gkkMmsUX1u"
     authorizationParams={{
       redirect_uri: "http://localhost:5173/upload",
     }}

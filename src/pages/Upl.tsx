@@ -1,49 +1,60 @@
 import React, { useState } from "react";
 import { useAuth0 } from '@auth0/auth0-react';
-
+import LogoutButton from "./LogoutButton";
+// import Layout2 from "../Layout/Layout2";
+{/* <Layout2/> */}
 const Mycomponent = () =>{
-const {
-  // Auth state:
-  error,
-  isAuthenticated,
-  isLoading,
-  user,
-  // Auth methods:
-  getAccessTokenSilently,
-  getAccessTokenWithPopup,
-  getIdTokenClaims,
-  loginWithRedirect,
-  loginWithPopup,
-  logout,
-} = useAuth0();
+  const {
+    
+    
+    // Auth state:
+    error,
+    isAuthenticated,
+    isLoading,
+    user,
+    // Auth methods:
+    getAccessTokenSilently,
+    getAccessTokenWithPopup,
+    getIdTokenClaims,
+    loginWithRedirect,
+    loginWithPopup,
+    logout,
+  } = useAuth0();
+  
+  const renderContent =():JSX.Element => {
+    // <LogoutButton/>
+  if(isLoading){
+    return <div> Loading ....... Please Wait</div>;
+  }
+  
+  if (error){
+    return <div> Error Occured Please try again and lets Label some DATA : {error.message}</div>;
+  }
+  if (!isAuthenticated){
+    return <div> USER IS NOT AUTHORIZED TO VIEW THIS , PLEASE LOGIN</div>;
+  }
+  // if (isAuthenticated && user) {
+  //   return (
+  //     <div>
+        
+  //       <button onClick={() => logout({ returnTo : window.location.origin  })}>
+  //         Log out
+  //       </button>
+  //     </div>
+  //   );
+  // }
 
-const renderContent =():JSX.Element => {
-if(isLoading){
-  return <div> Loading ....... Please Wait</div>;
-}
-
-if (error){
-  return <div> Error Occured Please try again and lets Label some DATA : {error.message}</div>;
-}
-if (!isAuthenticated){
-  return <div> USER IS NOT AUTHORIZED TO VIEW THIS , PLEASE LOGIN</div>;
-}
-
-
-return <Upl />;
+  return <Upl />
 };
 
 
-
   const Upl = () => {
-
-    
   const [selectedImage, setSelectedImage] = useState<FileList | null>(null);
   const [tags, setTags] = useState<string[]>([]);
   const [outputImage, setOutputImage] = useState<string>("");
 
   const handleImageUpload = () => {
-    if (selectedImage) {
+    if (selectedImage ) {
       const formData = new FormData();
       formData.append("image", selectedImage[0]);
 
@@ -68,7 +79,7 @@ return <Upl />;
   return (
     <>
       <div>
-        <h1 style={{fontSize:"55px",fontFamily:"monospace",}}>Upload Image</h1>
+        <h1 style={{fontSize:"20px",fontFamily:"monospace",textDecoration:"underline"}}>Upload Image</h1>
 
         {selectedImage && (
           <div>
@@ -78,7 +89,7 @@ return <Upl />;
               src={URL.createObjectURL(selectedImage[0])}
             />
             <br />
-            <button style={{borderRadius:"20px",width:"130px",height:"50px",fontFamily:"monospace",fontSize:"30px",border:"0",marginTop:"30px",cursor:"pointer",color:"#fff",backgroundColor:"#6c63ff"}}  onClick={() => setSelectedImage(null)}>Remove</button>
+            <button style={{borderRadius:"20px",width:"80px",height:"40px",fontFamily:"monospace",fontSize:"15px",border:"0",marginTop:"30px",cursor:"pointer",color:"#fff",backgroundColor:"#1285e8"}}  onClick={() => setSelectedImage(null)}>Remove</button>
           </div>
         )}
 
@@ -97,23 +108,23 @@ return <Upl />;
         <br />
         <br />
 
-        <button style={{borderRadius:"20px",width:"130px",height:"50px",fontFamily:"monospace",fontSize:"30px",border:"0",marginTop:"30px",cursor:"pointer",color:"#fff",backgroundColor:"#6c63ff"}}onClick={handleImageUpload}>Upload</button>
+        <button style={{borderRadius:"20px",width:"80px",height:"40px",fontFamily:"monospace",fontSize:"15px",border:"0",marginTop:"30px",cursor:"pointer",color:"#fff",backgroundColor:"#1285e8"}}onClick={handleImageUpload}>Upload</button>
 
         <div>
           {tags.length > 0 && (
             <>
-              <h2 style={{fontSize:"55px",fontFamily:"monospace"}}>Tags:</h2>
-              <ul>
+              <h2 style={{fontSize:"20px",fontFamily:"monospace",textDecoration:"underline"}}>Tags:</h2>
+              <ol style={{fontSize:"15px"}}>
                 {tags.map((tag, index) => (
-                  <li key={index}>{tag}</li>
+                  <li style={{fontSize:"15px"}} key={index}>{tag}</li>
                 ))}
-              </ul>
+              </ol>
             </>
           )}
 
           {outputImage && (
             <>
-              <h2 style={{fontSize:"55px",fontFamily:"monospace",}}>Output Image:</h2>
+              <h2 style={{fontSize:"20px",fontFamily:"monospace",textDecoration:"underline"}}>Output Image:</h2>
               <img alt="output" src={`data:image/png;base64, ${outputImage}`} />
             </>
           )}
@@ -122,31 +133,36 @@ return <Upl />;
     </>
   );     
   };
-
   return ( 
-  <div>
+    <div>
+  
+      
+  
+  
+      
+      {isAuthenticated && user &&(
+        <div
+            style={{
+              background: "#f8f8f8",
+              padding: "20px",
+              fontSize: "24px",
+              fontFamily: "Arial, sans-serif",
+              fontWeight: "bold",
+              color: "#333",
+              alignContent:"center",
+            }}
+          >
+          <div >
+          Hello {user.name},Welcome!Let's Label some data <LogoutButton /></div>
+          {/* <button onClick={() => logout({ returnTo : window.location.origin  })}></button> */}
+        </div>
+      )}
+      {renderContent() }
+    </div>
+    );
+  };
+    export default Mycomponent;
 
-    
 
 
-    
-    {isAuthenticated && user &&(
-      <div
-          style={{
-            background: "#f8f8f8",
-            padding: "20px",
-            fontSize: "24px",
-            fontFamily: "Arial, sans-serif",
-            fontWeight: "bold",
-            color: "#333",
-            alignContent:"center",
-          }}
-        >
-        Hello {user.name}, Welcome ! Let's Label some data
-      </div>
-    )}
-    {renderContent() }
-  </div>
-  );
-};
-  export default Mycomponent;
+ 
